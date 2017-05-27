@@ -19,6 +19,8 @@ public class myReceiver extends BroadcastReceiver {
         if (intent.getAction().equalsIgnoreCase("com.example.BroadCast")){
             String msg=bundle.getString("msg");
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+            NewMessageNotification newMessageNotification= new NewMessageNotification();
+            newMessageNotification.notify(context,msg,12);
         }
         if (intent.getAction().equalsIgnoreCase("android.provider.Telephony.SMS_RECEIVED")){
             if (bundle!=null){
